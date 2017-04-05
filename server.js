@@ -1,6 +1,8 @@
 const express = require('express');
 const hbs = require('hbs');
 
+const port = process.env.port || 3000;
+
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('currentYear',()=>{
     return new Date().getFullYear();
@@ -41,5 +43,5 @@ app.get('/about',(req,res) => {
 app.get('/bad',(req,res)=>{
     res.send('<h1>bad handing of request</h1>');
 })
-app.listen(3000);
+app.listen(port);
 
